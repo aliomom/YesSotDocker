@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  yessoftwepapp:
+    image: ${DOCKER_REGISTRY-}yessoftwepapp
+    build:
+      context: .
+      dockerfile: YesSoftWepApp/Dockerfile

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using infra.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using YesSoftWepApp.Models;
@@ -12,9 +13,10 @@ namespace YesSoftWepApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        IUnitOfWork unitOfWork;
         public HomeController(ILogger<HomeController> logger)
         {
+            unitOfWork = new UnitOfWork();
             _logger = logger;
         }
 
@@ -25,6 +27,7 @@ namespace YesSoftWepApp.Controllers
 
         public IActionResult Privacy()
         {
+            
             return View();
         }
 
